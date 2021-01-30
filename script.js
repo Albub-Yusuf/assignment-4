@@ -93,7 +93,7 @@ document.getElementById('book-now').addEventListener('click', function () {
     let departureDate = document.getElementById('departure').value;
     let returnDate = document.getElementById('return').value;
 
-    //given random value if no departure and return date is not provided
+    //given default value if no departure and return date is not provided
     if (departureDate == "") { departureDate = "2021-02-12" }
     if (returnDate == "") { returnDate = "2021-02-25" }
 
