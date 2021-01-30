@@ -1,25 +1,13 @@
-/////////// first class section////////////
-//firstClass-count, firstClass-increase ,  firstClass-decrease
-
-
-////////// economy class section /////////
-//economy-count, economy-increase , economy-decrease
-
-
-////////// sub total section//////////////
-// sub-total, vat, total
-
+//variable declared for counting number of tickets and 
 let totalFirstClassTicket = 0;
 let totalEconomyClassTicket = 0;
-let subTotal = 0;
-let vat = 0;
-let total = 0;
 
+//variable declared for grabbing ticket counter value
 const firstClassInput = document.getElementById('firstClass-count');
 const economyClassInput = document.getElementById('economy-count');
 
 
-
+//function for counting total number of tickets
 function ticketCounter(ticketInput, isIncreased) {
 
     const ticketCount = parseInt(ticketInput.value);
@@ -27,6 +15,7 @@ function ticketCounter(ticketInput, isIncreased) {
     let ticketUnitPrice = 0;
     const category = ticketInput.name;
 
+    //conditions for checking add or subtract tickets & restrict given negative inputs
     if (isIncreased == false && ticketCount > 0) {
         ticketNewCount = ticketCount - 1;
     } else if (isIncreased == true && ticketCount >= 0) {
@@ -34,6 +23,7 @@ function ticketCounter(ticketInput, isIncreased) {
     }
     ticketInput.value = ticketNewCount;
 
+    //conditions for checking tickets category whether it's first-class or economy-class
     if (category == 'first-class') {
         totalFirstClassTicket = ticketNewCount;
     }
@@ -42,16 +32,20 @@ function ticketCounter(ticketInput, isIncreased) {
         totalEconomyClassTicket = ticketNewCount;
     }
 
-    //calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
+    //calling calculateTicketPrice function for calculate total ticket price
+    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
 
 }
 
+//function for calculate ticket price
 function calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket) {
 
-    subTotal = (totalFirstClassTicket * 150) + (totalEconomyClassTicket * 100);
-    vat = Math.round(subTotal * .10);
-    total = subTotal + vat;
+    //calculate sub-total, vat & total price
+    const subTotal = (totalFirstClassTicket * 150) + (totalEconomyClassTicket * 100);
+    const vat = Math.round(subTotal * .10);
+    const total = subTotal + vat;
 
+    //set subtotal, vat & total price values in calculation section
     document.getElementById('sub-total').innerText = subTotal;
     document.getElementById('vat').innerText = vat;
     document.getElementById('total').innerText = total;
@@ -59,10 +53,10 @@ function calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket) {
 }
 
 
+//Ticket increase and decrease events for plus and minus buttons 
 document.getElementById('firstClass-increase').addEventListener('click', function () {
 
     ticketCounter(firstClassInput, true);
-    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
 
 });
 
@@ -70,7 +64,6 @@ document.getElementById('firstClass-increase').addEventListener('click', functio
 document.getElementById('firstClass-decrease').addEventListener('click', function () {
 
     ticketCounter(firstClassInput, false);
-    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
 
 });
 
@@ -79,7 +72,6 @@ document.getElementById('firstClass-decrease').addEventListener('click', functio
 document.getElementById('economy-increase').addEventListener('click', function () {
 
     ticketCounter(economyClassInput, true);
-    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
 
 
 });
@@ -88,55 +80,53 @@ document.getElementById('economy-increase').addEventListener('click', function (
 document.getElementById('economy-decrease').addEventListener('click', function () {
 
     ticketCounter(economyClassInput, false);
-    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
 
 
 });
 
+// Bonus Content Code showing Booking Details
 document.getElementById('book-now').addEventListener('click', function () {
 
+    //Grab input value from Booking form
+    const destinationFrom = document.getElementById('flying-from').value;
+    const destinationTo = document.getElementById('flying-to').value;
+    const departureDate = document.getElementById('departure').value;
+    const returnDate = document.getElementById('return').value;
+
+    //set the input values
+    document.getElementById('destination-from').value = destinationFrom;
+    document.getElementById('destination-to').value = destinationTo;
+    document.getElementById('departure-date').value = departureDate;
+    document.getElementById('return-date').value = returnDate;
+
+    //Hiding the booking-form, booking-content and book now button
     document.getElementById('bookingForm').style.display = "none";
     document.getElementById('content').style.display = "none";
     document.getElementById('book-now').style.display = "none";
+
+    //changing style to show the hidden div & button
     document.getElementById('booking-confirm').style.display = "block";
     document.getElementById('back').style.display = "block";
     document.getElementById("custom").style.gridTemplateColumns = "4fr";
-  
+    document.getElementById('custom').style.margin = "100px auto";
 
-    const tft = totalFirstClassTicket;
-    const tet = totalEconomyClassTicket;
-
-
+    //display number of tickets purchased
     document.getElementById('first-class-input-value').value = "$150 " + " X " + totalFirstClassTicket;
     document.getElementById('economy-class-input-value').value = "$100 " + " X " + totalEconomyClassTicket;
 
 
-
+    //display total price of first-class & economy class tickets individually
     document.getElementById('first-class-total-ticket').innerText = totalFirstClassTicket * 150;
-    document.getElementById('economy-class-total-ticket').innerText =  totalEconomyClassTicket * 100;
-
-    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
-
-    console.log('f1 = ' + tft + " & eco = " + tet);
-    calculateTicketPrice(tft, tet);
-    calculateTicketPrice(totalFirstClassTicket, totalEconomyClassTicket);
-    console.log('subtotal = '+ subTotal + 'vat = ' + vat + 'total = '+ total);
-    document.getElementById('sub-total1').innerText = subTotal;
-    document.getElementById('vat1').innerText = vat;
-    document.getElementById('total1').innerText = total;
-
+    document.getElementById('economy-class-total-ticket').innerText = totalEconomyClassTicket * 100;
 
 });
 
-document.getElementById('back').addEventListener('click',function(){
-    document.getElementById('bookingForm').style.display = "block";
-    document.getElementById('content').style.display = "block";
-    document.getElementById('book-now').style.display = "block";
-    document.getElementById('booking-confirm').style.display = "none";
-    document.getElementById('back').style.display = "none";
-    document.getElementById("custom").style.gridTemplateColumns = "2fr 3fr";
-    
+//Back button activities
+document.getElementById('back').addEventListener('click', function () {
+
+    window.location.href = window.location.href;
+
 });
 
- 
+
 

@@ -123,18 +123,8 @@ nav ul li a:hover, a.active{
 
 /* style on custom section */
 
-/*booking-confirm section style*/
-#booking-confirm{
-
-    width: 100%;
-    border-radius: 15px;
-    margin: 100px auto;
-    display: none;
-   
-    
-}
-/* Hiding back button */
-#back{
+/*hide bonus section div*/
+#booking-confirm, #back{
     display: none;
 }
 

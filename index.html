@@ -28,45 +28,98 @@
 
     <!--Booking Section-->
     <main id="custom" class="main-content container">
-        <div id="bookingForm" class="booking-form">
-            <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
-            </div>
-            <div class="inputs">
+        <div class="booking-form">
+            <div id="bookingForm">
+                <h3>Booking Flights</h3>
                 <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input class="inp-style" type="date" name="">
+                    <label for="">Flying From</label>
+                    <input class="inp-style" type="text" id="flying-from" placeholder="Dhaka, Bangladesh">
                 </div>
                 <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" type="date" name="">
+                    <label for="">Flying To</label>
+                    <input class="inp-style" type="text" id="flying-to" placeholder="New York, United States">
                 </div>
-            </div>
-            <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input id="firstClass-count" class="inp-style inp-width" type="number" name="first-class" min="0" value="0">
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                            <input class="inp-style" type="date" id="departure">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Return</label>
+                        <input class="inp-style" type="date" id="return">
+                    </div>
                 </div>
-                <div class="plus-minus-btn">
-                    <p><span id="firstClass-increase">+</span> <span id="firstClass-decrease">-</span></p>
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">First Class ($150)</label>
+                        <input id="firstClass-count" class="inp-style inp-width" type="number" name="first-class"
+                            min="0" value="0">
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p><span id="firstClass-increase">+</span> <span id="firstClass-decrease">-</span></p>
+                    </div>
+                </div>
+
+                <div class="input-group f-class">
+                    <div>
+                        <label for="">Economy ($100)</label>
+                        <input id="economy-count" class="inp-style inp-width" type="number" name="economy" min="0"
+                            value="0">
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p> <span id="economy-increase">+</span> <span id="economy-decrease">-</span> </p>
+                    </div>
                 </div>
             </div>
 
-            <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input id="economy-count" class="inp-style inp-width" type="number" name="economy" min="0" value="0">
+            <!--Booking confirm-->
+            <div id="booking-confirm">
+                <h3 style="text-align: center;">Thanks for choosing Discover Fly</h3>
+                <div class="input-group">
+                    <label for="">Flying From</label>
+                    <input class="inp-style" disabled type="text" id="destination-from" placeholder="Dhaka, Bangladesh">
                 </div>
-                <div class="plus-minus-btn">
-                    <p> <span id="economy-increase">+</span> <span id="economy-decrease">-</span> </p>
+                <div class="input-group">
+                    <label for="">Flying To</label>
+                    <input class="inp-style" disabled type="text" id="destination-to"
+                        placeholder="New York, United States">
                 </div>
+                <div class="inputs">
+                    <div class="input-group">
+                        <label" for="">Departure</label>
+                            <input class="inp-style" value="5-2-2021" disabled type="text" id="departure-date">
+                    </div>
+                    <div class="input-group">
+                        <label for="">Return</label>
+                        <input class="inp-style" value="15-2-2021" disabled type="text" id="return-date">
+                    </div>
+                </div>
+                <div class="input-group f-class">
+                    <div>
+                        <label for=""><b>Total First Class Ticket</b></label>
+                        <input id="first-class-input-value" class="inp-style inp-width" type="text" name="first-class"
+                            value="$150 X 0">
+                    </div>
+                    <div>
+                        <p><b>$ <span id="first-class-total-ticket">00</span></b></p>
+                    </div>
+                </div>
+
+                <div class="input-group f-class">
+                    <div>
+                        <label for=""><b>Total Economy Class Ticket</b></label>
+                        <input id="economy-class-input-value" class="inp-style inp-width" type="text" name="first-class"
+                            value="$100 X 0">
+                    </div>
+                    <div>
+                        <p><b>$ <span id="economy-class-total-ticket">00</span></b></p>
+                    </div>
+                </div>
+
             </div>
+
+            <!--Booking Confirmation ends here-->
+
             <div class="calculations">
                 <div class="amount">
                     <div class="left">
@@ -96,81 +149,13 @@
                 </div>
             </div>
             <button id="book-now" class="btn-style">Book Now</button>
+            <!--Back Button-->
+            <button id="back" class="btn-style">Return to Home</button>
         </div>
 
-<!--Booking confirm-->
-        <div id="booking-confirm" class="booking-form">
-            <h3 style="text-align: center;">Thanks for choosing Discover Fly</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" disabled type="text" name="" placeholder="Dhaka, Bangladesh">
-            </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" disabled type="text" name="" placeholder="New York, United States">
-            </div>
-            <div class="inputs">
-                <div class="input-group">
-                    <label" for="">Departure</label>
-                        <input class="inp-style" value="5-2-2021" disabled type="text" name="">
-                </div>
-                <div class="input-group">
-                    <label for="">Return</label>
-                    <input class="inp-style" value="15-2-2021" disabled type="text" name="">
-                </div>
-            </div>
-            <div class="input-group f-class">
-                <div>
-                    <label for=""><b>Total First Class Ticket</b></label>
-                    <input id="first-class-input-value" class="inp-style inp-width" type="text" name="first-class" value="$150 X 0"> 
-                </div>
-                <div>
-                    <p><b><span id="first-class-total-ticket">00</span></b></p>
-                </div>
-            </div>
 
-            <div class="input-group f-class">
-                <div>
-                    <label for=""><b>Total Economy Class Ticket</b></label>
-                    <input id="economy-class-input-value" class="inp-style inp-width" type="text" name="first-class" value="$100 X 0"> 
-                </div>
-                <div>
-                    <p><b><span id="economy-class-total-ticket">00</span></b></p>
-                </div>
-            </div>
 
-          
-            <div class="calculations">
-                <div class="amount">
-                    <div class="left">
-                        <p>Subtotal</p>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="sub-total1">000</span></p>
-                    </div>
-                </div>
-
-                <div class="amount">
-                    <div class="left">
-                        <p>Charge 10% VAT</p>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="vat1">00</span></p>
-                    </div>
-                </div>
-                <hr>
-                <div class="amount">
-                    <div class="left">
-                        <h4>Total</h4>
-                    </div>
-                    <div class="right">
-                        <p>$ <span id="total1">000</span></p>
-                    </div>
-                </div>
-            </div>
-            <button id="back" class="btn-style">Back</button>
-        </div>
-<!--Booking confirmation ends here-->
+        <!--Booking confirmation ends here-->
 
         <div id="content" class="booking-content">
             <h1>discover <br> around the world</h1>
