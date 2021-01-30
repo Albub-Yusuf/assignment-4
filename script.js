@@ -26,7 +26,7 @@ function ticketCounter(ticketInput, isIncreased) {
 
     if (isIncreased == false && ticketCount > 0) {
         ticketNewCount = ticketCount - 1;
-    } else if (isIncreased == true && ticketCount > 0) {
+    } else if (isIncreased == true && ticketCount >= 0) {
         ticketNewCount = ticketCount + 1;
     }
     ticketInput.value = ticketNewCount;
