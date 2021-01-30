@@ -90,8 +90,12 @@ document.getElementById('book-now').addEventListener('click', function () {
     //Grab input value from Booking form
     const destinationFrom = document.getElementById('flying-from').value;
     const destinationTo = document.getElementById('flying-to').value;
-    const departureDate = document.getElementById('departure').value;
-    const returnDate = document.getElementById('return').value;
+    let departureDate = document.getElementById('departure').value;
+    let returnDate = document.getElementById('return').value;
+
+    //given random value if no departure and return date is not provided
+    if (departureDate == "") { departureDate = "2021-02-12" }
+    if (returnDate == "") { returnDate = "2021-02-25" }
 
     //set the input values
     document.getElementById('destination-from').value = destinationFrom;
